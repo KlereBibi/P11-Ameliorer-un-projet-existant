@@ -1,0 +1,108 @@
+#contact {
+        display: flex;
+        background-color:rgb(232, 167, 93);
+        border-radius: 10px;
+        padding-bottom: 1%;
+        padding-top: 1%;
+        padding-right: 1%;
+        padding-left: 1%;}
+
+.clients {
+        display: flex;
+        margin-left: auto;
+        }
+
+.backgroundProduct {
+        background-image: url("../assets/img/background/products.jpg");
+        background-size:cover;
+        background-position:center;
+  }
+
+.backgroundUserfood {
+    background-image: url("../assets/img/background/userfood.jpg") ;
+    background-size:cover;
+    background-position: center center;
+}
+
+.text{
+padding-top: 15rem;
+padding-bottom: calc(15rem - 4.5rem);
+font-family: "Open Sans", sans-serif;
+color:white;
+text-align: center;
+font-size: large;
+ }
+
+.textMention{
+padding-top: 5rem;
+padding-bottom: calc(10rem - 4.5rem);
+font-family: "Open Sans", sans-serif;
+color:white;
+text-align: center}
+
+.topright {
+  position: absolute;
+  top: 2%;
+  right: 25%;
+  font-size: 25px;
+  background-color: white;
+}
+
+.circle{
+    margin:10px;
+    width:30px;
+    background-image: white;
+    height:30px;
+    text-align:center;
+    border-radius:100px;
+    <strong>line-height: 90px; /* 100 - 10 */</strong>
+}
+
+.container {
+  position: relative;
+}
+
+.textFood{
+    padding-bottom: 25px; }
+
+ .picture{
+	max-width:auto;
+	max-height:300px;
+    object-fit: contain;}
+
+.textOFF {
+font-family: "Open Sans", sans-serif;
+text-align: center;
+font-size: large;
+}
+
+.bordure {
+padding-top : 8px;
+padding-bottom : 8px;
+padding-right : 8 px;
+padding-left: 8px;
+border: 1px solid black;
+}
+
+.dimension {
+height: 150px;
+}
+
+.bgcouleur { background-color: rgb(52, 90, 97)}
+.product { background-color: rgb(232, 167, 93)}
+
+#nameP {
+    font-family: "Scope One", sans-serif;
+    display: flex;
+    align-items: center;
+}
+.bas { font-family: "Scope One", sans-serif;
+    text-align: center;
+    padding-bottom: 25px;
+    padding-top: 25px;}
+
+#header { padding: 40px;}
+
+#bgcolor {
+background-color: rgb(134, 235, 230)
+}
