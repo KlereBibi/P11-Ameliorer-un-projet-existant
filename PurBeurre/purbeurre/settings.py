@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django_bootstrap5',
     'authentification',
     'products',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -144,3 +145,5 @@ LOGIN_URL = "authentification:login"
 LOGIN_REDIRECT_URL = "products:home"
 
 django_heroku.settings(locals())
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' #a confirgurer.
