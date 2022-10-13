@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django_bootstrap5',
     'authentification',
     'products',
-    'crispy_forms',
+    'six',
 ]
 
 MIDDLEWARE = [
@@ -146,4 +146,10 @@ LOGIN_REDIRECT_URL = "products:home"
 
 django_heroku.settings(locals())
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' #a confirgurer.
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'clairestudentoc@gmail.com'
+EMAIL_HOST_PASSWORD = 'zgku siir grku futb' #past the key or password app here
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'PurBeurre <clairestudentoc@gmail.com>'

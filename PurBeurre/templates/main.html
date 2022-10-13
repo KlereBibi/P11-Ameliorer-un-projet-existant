@@ -67,9 +67,7 @@
                     <form id="user-text-form" class="message pos col-6" method="POST"
                           action="{% url 'products:search' %}">
                         {% csrf_token %}
-                        {% for field in form %}
-                        {% bootstrap_field field %}
-                        {% endfor %}
+                        {% bootstrap_form search_form layout='inline' %}
                         <input class="message btn btn-outline-warning my-2 my-sm-0 " type="submit" value="Chercher">
                     </form>
                 </li>
