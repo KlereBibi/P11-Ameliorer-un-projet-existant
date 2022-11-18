@@ -1,0 +1,50 @@
+#id_email {border-radius: 5px;}
+#id_username {border-radius: 5px}
+#id_first_name {border-radius: 5px}
+#id_last_name {border-radius: 5px}
+#id_password1 {border-radius: 5px}
+#id_password2 {border-radius: 5px}
+#header { padding: 40px;}
+
+.helptext {display: block;
+font-style: italic;
+font-size: 12px;
+padding-top : 1%}
+
+.form-label {color:black}
+
+.form-text {color:white}
+
+.background {
+  background-image: url("../assets/img/background/home_page.jpg") ;
+  background-size: cover;
+  background-position: center center;
+  padding:200px
+}
+
+.text{
+        padding-top: 15rem;
+        padding-bottom: calc(15rem - 4.5rem);
+        font-family: "Open Sans", sans-serif;
+        color:white;
+        text-align: center;
+        font-size:large;
+        }
+
+.bgcouleur { background-color: rgb(52, 90, 97)}
+
+.backgroundUser {
+        background-image: url("../assets/img/background/user.jpg") ;
+        background-size:cover;
+  }
+
+.backgroundMail { background-color: rgb(232, 167, 93)}
+
+.textMail{
+        padding-top: 5rem;
+        padding-bottom: calc(25rem - 4.5rem);
+        font-family: "Open Sans", sans-serif;
+        color:white;
+        text-align: center;
+        font-size:large;
+}
