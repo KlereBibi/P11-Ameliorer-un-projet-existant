@@ -1,1 +1,1 @@
-pip freeze > requirements.txt web: gunicorn purbeurre.wsgi --log-file -
+pip freeze > requirements.txt web: gunicorn purbeurre.wsgi --log-file
