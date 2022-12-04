@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-_=i2ez2(zyu3ap_5sugb)1_(z%8i_&v68ty#%65^1s2vl7nhs*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'purbeurre2.herokuapp.com']
 
@@ -144,8 +144,8 @@ django_heroku.settings(locals())
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'clairestudentoc@gmail.com'
-EMAIL_HOST_PASSWORD = 'zgku siir grku futb' #past the key or password app here
+EMAIL_HOST_USER = 'biedermannclaire153@gmail.com'
+EMAIL_HOST_PASSWORD = 'qvfcjpjiuulmazpx' #past the key or password app here
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'PurBeurre <clairestudentoc@gmail.com>'
+DEFAULT_FROM_EMAIL = 'biedermannclaire153@gmail.com'

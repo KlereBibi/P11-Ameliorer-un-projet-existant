@@ -16,13 +16,13 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(template_name='products/home.html', next_page=None), name='logout'),
     path('account/', TemplateView.as_view(), name='account'),
     path('activate/<uidb64>/<token>/', views.activate, name='activate'),
-    path('reset_password/', auth_views.PasswordResetView.as_view(#1er page
-        template_name="password/password_reset.html", #utilisateur
-        email_template_name='password/password_reset_content.txt', #contenue du mail
-        success_url=reverse_lazy('authentification:password_reset_done'),#a redéfinir
-        subject_template_name='password/password_reset_subject.txt'),#sujet dans l'email
-         name='reset_password'),#name
-    path('reset_password_sent/', auth_views.PasswordResetDoneView.as_view(#just un template name - s'affiche "m'envoyer le mail"
+    path('reset_password/', auth_views.PasswordResetView.as_view(
+        template_name="password/password_reset.html",
+        email_template_name='password/password_reset_content.txt',
+        success_url=reverse_lazy('authentification:password_reset_done'),
+        subject_template_name='password/password_reset_subject.txt'),
+         name='reset_password'),
+    path('reset_password_sent/', auth_views.PasswordResetDoneView.as_view(
         template_name="password/password_reset_done.html"),
          name='password_reset_done'),
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(#reset mot de pass lui même
