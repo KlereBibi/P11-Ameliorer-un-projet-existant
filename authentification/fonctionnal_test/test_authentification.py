@@ -33,7 +33,7 @@ class TestAuthentificationRegister(StaticLiveServerTestCase):
         lname = self.browser.find_element(By.ID, "id_last_name")
         lname.send_keys("Etudiante")
         username = self.browser.find_element(By.ID, "id_username")
-        username.send_keys("rgonnage")
+        username.send_keys("cEtudiante")
         email = self.browser.find_element(By.ID, "id_email")
         email.send_keys(By.ID, "test@test.com")
         password1 = self.browser.find_element(By.ID, "id_password1")
