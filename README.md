@@ -1,6 +1,7 @@
-# P8 Créez une plateforme pour amateurs de Nutella
+# P11 Améliorez un projet existant en Python
 
-*L'application permet à quiconque de trouver un substitut sain à un aliment considéré comme "Trop gras, trop sucré, trop salé".*
+*L'application de base permet à quiconque de trouver un substitut sain à un aliment considéré comme "Trop gras, trop sucré, trop salé".*
+*L'application a été amélioré pour permettre de confirmer l'authentification par mail et de réinitialiser son mot de passe".*
 
 ## Pour commencer
 
@@ -26,6 +27,8 @@ Toujours dans le terminal, initialisez votre environnement virtuel:
  - Etape 1: installation de pipenv avec la commande: *`pip install pipenv`*
  - Etape 2: initialisation de l'environnement virtuel dans le package: *`pipenv shell`* 
  - Etape 3: installer les modules nécessaires grâce au fichier requierements.txt: *`pipenv install -r requirements.txt`*
+
+Modifier les champs EMAIL_HOST_USER, EMAIL_HOST_PASSWORD et DEFAULT_FROM_EMAIL du fichier settings avec vos informations stm. 
 
 ## Démarrage
 * Ouvrez un terminal dans le dossier de l'application 
