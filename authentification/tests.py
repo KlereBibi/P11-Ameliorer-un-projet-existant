@@ -2,8 +2,11 @@
 
 from django.test import TestCase
 from django.test import Client
+from django.urls import reverse
+
 from authentification.models import User
 from django.core import mail
+import re
 
 class TestViews(TestCase):
 
@@ -82,17 +85,38 @@ class TestViews(TestCase):
         self.assertTemplateUsed(response, 'authentification/account.html')
 
 
-class EmailTest(TestCase):
-    def test_send_email(self):
-        # Send message.
-        mail.send_mail(
-            'Subject here', 'Here is the message.',
-            'from@example.com', ['to@example.com'],
-            fail_silently=False,
-        )
+class PasswordResetTest(TestCase):
+    def setUp(self):
+        self.user = User.objects.create(
+                    username="user",
+                    email="test@gmail.com",
+                    password="pwd")
 
-        # Test that one message has been sent.
+        self.c = Client()
+
+    def test_send_mail(self):
+        self.c.post('/auth/reset_password/', {'email': 'test@gmail.com'})
         self.assertEqual(len(mail.outbox), 1)
+        self.assertEqual(mail.outbox[0].subject, 'Réinitialisation du mot de passe.')
+        assert mail.outbox[0].to == ['test@gmail.com']
 
-        # Verify that the subject of the first message is correct.
-        self.assertEqual(mail.outbox[0].subject, 'Subject here')
+    def test_send_no_mail(self):
+        self.c.post('/auth/reset_password/', {'email': 'gg@gmail.com'})
+        self.assertEqual(len(mail.outbox), 0)
+
+    def test_url_mail_password_reset(self):
+
+        #Send the email
+        self.c.post('/auth/reset_password/', {'email': 'test@gmail.com'})
+
+        #Search the email adress to redirect
+        body = mail.outbox[0].body
+        link_regex = re.compile(r'((https?):((//)|(\\\\))+([\w\d:#@%/;$()~_?\+-=\\\.&](#!)?)*)', re.DOTALL)
+        links = re.findall(link_regex, body)
+        for element in links:
+            self.url = element[0]
+
+        #Test the template use redirection
+        response = self.c.get(self.url, follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'password/password_reset_confirm.html')

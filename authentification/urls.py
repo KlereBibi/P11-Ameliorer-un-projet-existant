@@ -25,15 +25,12 @@ urlpatterns = [
     path('reset_password_sent/', auth_views.PasswordResetDoneView.as_view(
         template_name="password/password_reset_done.html"),
          name='password_reset_done'),
-    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(#reset mot de pass lui même
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(
         template_name="password/password_reset_confirm.html",
-        success_url=reverse_lazy('authentification:password_reset_complete')), #redirection url après
+        success_url=reverse_lazy('authentification:password_reset_complete')),
          name='password_reset_confirm'),
-    path('reset_password_complete/', auth_views.PasswordResetCompleteView.as_view(#pour dire bravo on a changé votre mot de passe.
+    path('reset_password_complete/', auth_views.PasswordResetCompleteView.as_view(
         template_name="password/password_reset_complete.html"),
          name='password_reset_complete')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
-#dire a django d utiliser ma boite pour envoyer des mail
-#django send mail with gmail
-#mets à jour mes templates
