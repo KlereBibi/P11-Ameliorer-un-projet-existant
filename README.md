@@ -28,7 +28,7 @@ Toujours dans le terminal, initialisez votre environnement virtuel:
  - Etape 2: initialisation de l'environnement virtuel dans le package: *`pipenv shell`* 
  - Etape 3: installer les modules nécessaires grâce au fichier requierements.txt: *`pipenv install -r requirements.txt`*
 
-Modifier les champs EMAIL_HOST_USER, EMAIL_HOST_PASSWORD et DEFAULT_FROM_EMAIL du fichier settings avec vos informations stm. 
+Modifier les champs EMAIL_HOST_USER, EMAIL_HOST_PASSWORD et DEFAULT_FROM_EMAIL du fichier settings dans purbeurre avec vos informations stmp. 
 
 ## Démarrage
 * Ouvrez un terminal dans le dossier de l'application 
