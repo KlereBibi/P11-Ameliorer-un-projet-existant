@@ -7,26 +7,30 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
-from pathlib import Path
+
 import os
+import json
+import sys
+from dotenv import load_dotenv
 import dj_database_url
-import django_heroku
+from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+load_dotenv(dotenv_path=BASE_DIR / '.env')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-_=i2ez2(zyu3ap_5sugb)1_(z%8i_&v68ty#%65^1s2vl7nhs*'
+SECRET_KEY = os.getenv(r'SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv(r'DEBUG')
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'purbeurre2.herokuapp.com']
+ALLOWED_HOSTS = json.loads(os.getenv('ALLOWED_HOSTS'))
 
+CSRF_TRUSTED_ORIGINS = json.loads(os.getenv('CSRF_HOSTS'))
 
 # Application definition
 
@@ -79,16 +83,18 @@ WSGI_APPLICATION = 'purbeurre.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'off_application',
-        'USER': 'postgres',
-        'PASSWORD': '184300',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': os.getenv('DBENGINE'),
+        'NAME': os.getenv('DBNAME'),
+        'USER': os.getenv('DBUSER'),
+        'PASSWORD': os.getenv('DBPASSWORD'),
+        'HOST': os.getenv('DBHOST'),
+        'PORT': os.getenv('DBPORT'),
     }
 }
 db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES['default'].update(db_from_env)
+if 'test' in sys.argv:
+    DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
 
 
 # Password validation
@@ -125,10 +131,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = [os.path.join(BASE_DIR, 'static')]
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-STATIC_ROOT = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -140,12 +145,12 @@ AUTHENTICATION_BACKENDS = ['authentification.backend.EmailBackend']
 LOGIN_URL = "authentification:login"
 LOGIN_REDIRECT_URL = "products:home"
 
-django_heroku.settings(locals())
+#django_heroku.settings(locals())
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = ''
+EMAIL_HOST = os.getenv(r'SMTP')
+EMAIL_HOST_USER = os.getenv(r'MAIL')
+EMAIL_HOST_PASSWORD = os.getenv(r'PASSWORD')
+EMAIL_PORT = os.getenv(r'PORT')
+EMAIL_USE_TLS = os.getenv(r'TLS')
+DEFAULT_FROM_EMAIL = os.getenv(r'MAIL')
