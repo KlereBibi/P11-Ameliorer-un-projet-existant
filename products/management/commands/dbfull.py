@@ -56,14 +56,16 @@ class Command(BaseCommand):
 
         product_non_saved = []
         for item in products_api:
-            product = {"name": item['product_name_fr'],
-                       "categories": item['categories'].split(','),
-                       "brands": item['brands'].split(','),
-                       "stores": item['stores'].split(',')}
-            product_non_saved.append(product)
+            try:
+                product = {"name": item['product_name_fr'],
+                           "categories": item['categories'].split(','),
+                           "brands": item['brands'].split(','),
+                           "stores": item['stores'].split(',')}
+                product_non_saved.append(product)
+            except KeyError:
+                continue
 
         productcategory = []
-
         for product in product_db:
             non_saved_product = next(filter(lambda prod: prod['name'] == product.name, product_non_saved), None)
             if non_saved_product:
