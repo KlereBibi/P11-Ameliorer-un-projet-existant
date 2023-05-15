@@ -28,15 +28,14 @@ Toujours dans le terminal, initialisez votre environnement virtuel:
  - Etape 2: initialisation de l'environnement virtuel dans le package: *`pipenv shell`* 
  - Etape 3: installer les modules nécessaires grâce au fichier requierements.txt: *`pipenv install -r requirements.txt`*
 
-Modifier les champs EMAIL_HOST_USER, EMAIL_HOST_PASSWORD et DEFAULT_FROM_EMAIL du fichier settings dans purbeurre avec vos informations stmp. 
-
 ## Démarrage
-* Ouvrez un terminal dans le dossier de l'application 
-* Tappez python manage.py migrate
-* Tappez python manage.py makemigration
-* Tappez python manage.py collectstatic
-* Tappez python manage.py runserver pour lancer l'application
-* Appuyez sur la touche CTRL + click souris sur le lien http pour ouvrir l'application
+* Créez un fichier .env avec vos propre variable d'environnement local à la racine du projet
+* Exécutez *python manage.py migrate*
+* Exécutez *python manage.py makemigration*
+* Exécutez *python manage.py collectstatic*
+* Exécutez *python manage.py dbfull*
+* Exécutez *python manage.py runserver* pour lancer l'application
+* Consultez votre application sur votre adresse ip
 
 ## Fabriqué avec
 * PyCharm - Editeur de texte
